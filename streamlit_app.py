@@ -47,18 +47,9 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-import base64
 
-# Function to encode image to Base64
-def get_image_as_base64(file_path):
-    with open(file_path, "rb") as img_file:
-        return base64.b64encode(img_file.read()).decode()
 
-# Load the logo image
-logo_base64 = get_image_as_base64("/mnt/data/Logo.png")
 
-# Display the logo
-st.markdown(f'<img src="data:image/png;base64,{logo_base64}" class="logo">', unsafe_allow_html=True)
 
 
 # Title Section
