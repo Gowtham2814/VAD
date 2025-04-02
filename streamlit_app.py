@@ -55,7 +55,7 @@ st.markdown(
 )
 
 # Load Logo
-logo_path = "/mnt/data/Logo.png"
+logo_path = "Logo.png"
 try:
     with open(logo_path, "rb") as image_file:
         encoded_logo = base64.b64encode(image_file.read()).decode()
