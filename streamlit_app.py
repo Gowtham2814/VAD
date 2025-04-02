@@ -1,41 +1,79 @@
 import streamlit as st
+import pandas as pd
+import time
 
-# Set the title and favicon that appear in the Browser's tab bar.
+# Set up page configuration
 st.set_page_config(
-    page_title='VAP - Varashakti Analytics Platform',
-    page_icon=':bar_chart:',
+    page_title='Housing Loan Dashboard - VAP',
+    page_icon=':house:',
+    layout='wide'
 )
 
-# -----------------------------------------------------------------------------
-# Draw the actual page
+# Custom styling
+st.markdown(
+    """
+    <style>
+        .title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+            color: #2E86C1;
+        }
+        .dashboard-card {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .dashboard-link {
+            font-size: 18px;
+            font-weight: bold;
+            color: #154360;
+            text-decoration: none;
+        }
+        .dashboard-link:hover {
+            color: #1ABC9C;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
-# Set the title that appears at the top of the page.
-'''
-# :bar_chart: VAP - Varashakti Analytics Platform
+# Title Section
+st.markdown('<p class="title">🏡  Varashakti Analytics Platform</p>', unsafe_allow_html=True)
 
-Explore various analytics dashboards available in our platform.
-'''
+st.write("Explore key insights and trends in housing loans.")
 
-# Add some spacing
-''
-''
+# Spacing
+st.markdown("---")
 
-st.header('Available Dashboards', divider='gray')
-
-# Dashboard Links
+# Dashboard Links with Cards
 dashboards = {
-    "Disbursement Dashboard": "https://app.powerbi.com/reportEmbed?reportId=d8df3fd1-6e71-4489-923d-a2aa6a19ff44&autoAuth=true&ctid=a89b94f6-5056-46b5-9bb5-c8c1fc71d057",
-    "HR Attrition Dashboard": "https://bit.ly/VHF_HR_Attrition_Dashboard",
-    "CXO Dashboard": "https://tinyurl.com/LmsPortfolioVhf",
-    "DPD Dashboard": "https://app.powerbi.com/reportEmbed?reportId=44180f4f-1398-4e20-a56a-3b5af447640b&autoAuth=true&ctid=a89b94f6-5056-46b5-9bb5-c8c1fc71d057"
+    "Loan Disbursement Dashboard": "https://app.powerbi.com/reportEmbed?reportId=d8df3fd1-6e71-4489-923d-a2aa6a19ff44&autoAuth=true&ctid=a89b94f6-5056-46b5-9bb5-c8c1fc71d057",
+    "HR Attrition Impact on Loans": "https://bit.ly/VHF_HR_Attrition_Dashboard",
+    "CXO Housing Loan Portfolio": "https://tinyurl.com/LmsPortfolioVhf",
+    "Default & Overdue Loans": "https://app.powerbi.com/reportEmbed?reportId=44180f4f-1398-4e20-a56a-3b5af447640b&autoAuth=true&ctid=a89b94f6-5056-46b5-9bb5-c8c1fc71d057"
 }
 
 cols = st.columns(2)
 for i, (name, link) in enumerate(dashboards.items()):
-    col = cols[i % len(cols)]
+    col = cols[i % 2]
     with col:
-        st.markdown(f"### [{name}]({link})", unsafe_allow_html=True)
+        st.markdown(
+            f'<div class="dashboard-card">'
+            f'<a class="dashboard-link" href="{link}" target="_blank">{name} ➜</a>'
+            f'</div>',
+            unsafe_allow_html=True
+        )
+
+# Loading animation for UX
+with st.spinner('Loading dashboard insights...'):
+    time.sleep(2)
 
 # Footer
-st.write("\n---\n© 2025 Varashakti Analytics Platform")
-
+st.markdown("""
+    ---
+    <p style='text-align: center; color: grey;'>© 2025 Varashakti Analytics Platform - Housing Loan Division</p>
+    """, unsafe_allow_html=True)
