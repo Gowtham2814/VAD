@@ -1,10 +1,11 @@
 import streamlit as st
 import pandas as pd
 import time
+import base64
 
 # Set up page configuration
 st.set_page_config(
-    page_title='Varashakti Analytics Platform- VAP',
+    page_title='VAP - Varashakti Analytics Platform',
     page_icon=':house:',
     layout='wide'
 )
@@ -15,20 +16,25 @@ st.markdown(
     <style>
         .title {
             text-align: center;
-            font-size: 80px;
+            font-size: 50px;
             font-weight: bold;
             color: #2E86C1;
+            margin-top: 20px;
         }
         .dashboard-card {
             background-color: #f8f9fa;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
             margin-bottom: 20px;
             text-align: center;
+            transition: transform 0.2s;
+        }
+        .dashboard-card:hover {
+            transform: scale(1.05);
         }
         .dashboard-link {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: bold;
             color: #154360;
             text-decoration: none;
@@ -41,19 +47,24 @@ st.markdown(
             margin-left: auto;
             margin-right: auto;
             width: 200px;
+            margin-bottom: 10px;
         }
     </style>
     """,
     unsafe_allow_html=True
 )
 
-
-
-
-
+# Load Logo
+logo_path = "/mnt/data/Logo.png"
+try:
+    with open(logo_path, "rb") as image_file:
+        encoded_logo = base64.b64encode(image_file.read()).decode()
+        st.markdown(f'<img src="data:image/png;base64,{encoded_logo}" class="logo">', unsafe_allow_html=True)
+except FileNotFoundError:
+    st.warning("Logo not found. Please upload the logo to display it.")
 
 # Title Section
-st.markdown('<p class="title">🏡 Varashakti Analytics Platform</p>', unsafe_allow_html=True)
+st.markdown('<p class="title">🏡VAP - Varashakti Analytics Platform</p>', unsafe_allow_html=True)
 
 st.write("Explore key insights and trends in housing loans.")
 
