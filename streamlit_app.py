@@ -15,7 +15,7 @@ st.markdown(
     <style>
         .title {
             text-align: center;
-            font-size: 36px;
+            font-size: 42px;
             font-weight: bold;
             color: #2E86C1;
         }
@@ -36,13 +36,22 @@ st.markdown(
         .dashboard-link:hover {
             color: #1ABC9C;
         }
+        .logo {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 200px;
+        }
     </style>
     """,
     unsafe_allow_html=True
 )
 
+# Logo Section
+st.markdown('<img src="data:image/png;base64,{0}" class="logo">'.format(open("/mnt/data/Logo.png", "rb").read().encode("base64").decode()), unsafe_allow_html=True)
+
 # Title Section
-st.markdown('<p class="title">🏡  Varashakti Analytics Platform</p>', unsafe_allow_html=True)
+st.markdown('<p class="title">🏡 Housing Loan Analytics Dashboard</p>', unsafe_allow_html=True)
 
 st.write("Explore key insights and trends in housing loans.")
 
@@ -51,10 +60,10 @@ st.markdown("---")
 
 # Dashboard Links with Cards
 dashboards = {
-    "Loan Disbursement Dashboard": "https://app.powerbi.com/reportEmbed?reportId=d8df3fd1-6e71-4489-923d-a2aa6a19ff44&autoAuth=true&ctid=a89b94f6-5056-46b5-9bb5-c8c1fc71d057",
-    "HR Attrition Impact on Loans": "https://bit.ly/VHF_HR_Attrition_Dashboard",
-    "CXO Housing Loan Portfolio": "https://tinyurl.com/LmsPortfolioVhf",
-    "Default & Overdue Loans": "https://app.powerbi.com/reportEmbed?reportId=44180f4f-1398-4e20-a56a-3b5af447640b&autoAuth=true&ctid=a89b94f6-5056-46b5-9bb5-c8c1fc71d057"
+    "Disbursement Dashboard": "https://app.powerbi.com/reportEmbed?reportId=d8df3fd1-6e71-4489-923d-a2aa6a19ff44&autoAuth=true&ctid=a89b94f6-5056-46b5-9bb5-c8c1fc71d057",
+    "HR Attrition": "https://bit.ly/VHF_HR_Attrition_Dashboard",
+    "CXO Dashboard": "https://tinyurl.com/LmsPortfolioVhf",
+    "DPD Analysis": "https://app.powerbi.com/reportEmbed?reportId=44180f4f-1398-4e20-a56a-3b5af447640b&autoAuth=true&ctid=a89b94f6-5056-46b5-9bb5-c8c1fc71d057"
 }
 
 cols = st.columns(2)
