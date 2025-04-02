@@ -5,7 +5,7 @@ import base64
 
 # Set up page configuration
 st.set_page_config(
-    page_title='VAP - Varashakti Analytics Platform',
+    page_title='VAP -Varashakti Analytics Platform',
     page_icon=':house:',
     layout='wide'
 )
@@ -20,6 +20,11 @@ st.markdown(
             font-weight: bold;
             color: #2E86C1;
             margin-top: 20px;
+        }
+        .description {
+            text-align: center;
+            font-size: 18px;
+            color: #5D6D7E;
         }
         .dashboard-card {
             background-color: #f8f9fa;
@@ -55,7 +60,7 @@ st.markdown(
 )
 
 # Load Logo
-logo_path = "Logo.png"
+logo_path = "/mnt/data/Logo.png"
 try:
     with open(logo_path, "rb") as image_file:
         encoded_logo = base64.b64encode(image_file.read()).decode()
@@ -64,9 +69,10 @@ except FileNotFoundError:
     st.warning("Logo not found. Please upload the logo to display it.")
 
 # Title Section
-st.markdown('<p class="title">🏡VAP - Varashakti Analytics Platform</p>', unsafe_allow_html=True)
+st.markdown('<p class="title">Varashakti Analytics Platform</p>', unsafe_allow_html=True)
 
-st.write("Explore key insights and trends in housing loans.")
+# Center-aligned description
+st.markdown('<p class="description">Explore key insights and trends in housing loans.</p>', unsafe_allow_html=True)
 
 # Spacing
 st.markdown("---")
@@ -97,5 +103,5 @@ with st.spinner('Loading dashboard insights...'):
 # Footer
 st.markdown("""
     ---
-    <p style='text-align: center; color: grey;'>© 2025 Varashakti Analytics Platform - Housing Loan Division</p>
+    <p style='text-align: center; color: grey;'>© 2025 Varashakti Analytics Platform - Housing Pvt Limited</p>
     """, unsafe_allow_html=True)
