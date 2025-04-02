@@ -4,7 +4,7 @@ import time
 
 # Set up page configuration
 st.set_page_config(
-    page_title='Housing Loan Dashboard - VAP',
+    page_title='Varashakti Analytics Platform- VAP',
     page_icon=':house:',
     layout='wide'
 )
@@ -47,11 +47,22 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Logo Section
-st.markdown('<img src="data:image/png;base64,{0}" class="logo">'.format(open("/mnt/data/Logo.png", "rb").read().encode("base64").decode()), unsafe_allow_html=True)
+import base64
+
+# Function to encode image to Base64
+def get_image_as_base64(file_path):
+    with open(file_path, "rb") as img_file:
+        return base64.b64encode(img_file.read()).decode()
+
+# Load the logo image
+logo_base64 = get_image_as_base64("/mnt/data/Logo.png")
+
+# Display the logo
+st.markdown(f'<img src="data:image/png;base64,{logo_base64}" class="logo">', unsafe_allow_html=True)
+
 
 # Title Section
-st.markdown('<p class="title">🏡 Housing Loan Analytics Dashboard</p>', unsafe_allow_html=True)
+st.markdown('<p class="title">🏡 Varashakti Analytics Platform</p>', unsafe_allow_html=True)
 
 st.write("Explore key insights and trends in housing loans.")
 
