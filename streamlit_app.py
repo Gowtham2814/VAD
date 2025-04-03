@@ -5,7 +5,7 @@ import base64
 
 # Set up page configuration
 st.set_page_config(
-    page_title='VAD -Varashakti Analytics Platform',
+    page_title='VAP -Varashakti Analytics Platform',
     page_icon=':house:',
     layout='wide'
 )
